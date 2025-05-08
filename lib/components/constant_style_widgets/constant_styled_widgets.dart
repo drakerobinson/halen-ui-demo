@@ -13,6 +13,11 @@ class ConstantStyledWidgets {
   static const TextStyle tabStyle = TextStyle(
     color: HalenColors.unfocusedTextWhite,
   );
+  static const TextStyle rideTabStyle = TextStyle(
+    color: HalenColors.unfocusedTextWhite,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  );
   static const TextStyle focusedTabStyle = TextStyle(
     color: HalenColors.focusedTextWhite,
   );
@@ -31,9 +36,19 @@ class ConstantStyledWidgets {
     fontSize: 18
   );
 
+  static const TextStyle selectRideStyle = TextStyle(
+    color: HalenColors.tabDarkColor,
+    fontWeight: FontWeight.bold,
+    fontSize: 24
+  );
+
   ///should be data driven and encapsulated within the entire events feature
   AutoSizeText getHomeTitle(String text) {
     return AutoSizeText(text, style: homeTitleStyle);
+  }
+
+  AutoSizeText getSelectRideText(String text) {
+    return AutoSizeText(text, style: selectRideStyle);
   }
 
   AutoSizeText tabTitles(String text, {TextStyle? overrideStyle}) {

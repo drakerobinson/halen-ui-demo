@@ -74,6 +74,8 @@ class DataSpoofer {
   ///This should be dynamic and would be a data driven object as well in a separate service
   List<String> getAppCategories() => ['Ride', 'Delivery', 'Eats', 'Flights'];
 
+
+  ///The fill color would be added here & handled via callback, viewModel or BLoC
   List<Widget> getFakeRideTabs() => [
     Text('Economy'),
     Text('Luxury'),

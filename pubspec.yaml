@@ -56,5 +56,6 @@ flutter:
     - assets/images/map_image.png
     - assets/images/promo_image.png
     - assets/halenlogo.svg
+    - assets/car_asset.svg
 
 

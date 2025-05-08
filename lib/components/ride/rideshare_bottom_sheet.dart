@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:halen_demo/colors.dart';
+import 'package:halen_demo/components/constant_style_widgets/constant_styled_widgets.dart';
+import 'package:halen_demo/components/ride/ride_carousel.dart';
 import 'package:halen_demo/spoof_services/data_spoofer.dart';
 
 class RideshareBottomSheet extends StatefulWidget {
@@ -20,21 +22,48 @@ class _RideshareBottomSheetState extends State<RideshareBottomSheet>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(child: Text('Select your ride')),
-        Padding(
-          padding: const EdgeInsets.only(top: 36.0),
-          child: TabBar(
-            indicatorColor: HalenColors.primary,
+    return Padding(
+      padding: EdgeInsets.zero,
+      child: Column(
+        children: [
+          TabBar(
+            indicatorColor: HalenColors.tabDarkColor,
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorWeight: 8,
+            dividerHeight: 5,
             tabs: DataSpoofer().getFakeRideTabs(),
+            labelColor: HalenColors.tabDarkColor,
+            labelStyle: ConstantStyledWidgets.rideTabStyle,
             controller: _tabController,
           ),
-        ),
-        TabBarView(controller: _tabController, children: [Container(), Container(), Container()]),
-      ],
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * .325,
+            child: TabBarView(
+              controller: _tabController,
+              children: [getEconomyRides(), Container(), Container()],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  getEconomyRides() {
+    return RideCarousel();
+  }
+
+  getLuxuryRides() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * .5,
+    );
+  }
+
+  getTaxiCabRides() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * .5,
     );
   }
 }
