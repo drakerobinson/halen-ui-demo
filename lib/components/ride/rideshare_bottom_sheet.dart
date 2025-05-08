@@ -41,7 +41,7 @@ class _RideshareBottomSheetState extends State<RideshareBottomSheet>
             height: MediaQuery.of(context).size.height * .325,
             child: TabBarView(
               controller: _tabController,
-              children: [getEconomyRides(), Container(), Container()],
+              children: [getRides(), getRides(), getRides()],
             ),
           ),
         ],
@@ -49,21 +49,7 @@ class _RideshareBottomSheetState extends State<RideshareBottomSheet>
     );
   }
 
-  getEconomyRides() {
+  getRides() {
     return RideCarousel();
-  }
-
-  getLuxuryRides() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * .5,
-    );
-  }
-
-  getTaxiCabRides() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * .5,
-    );
   }
 }
