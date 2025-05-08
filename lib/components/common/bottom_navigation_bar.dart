@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:halen_demo/components/constant_style_widgets/constant_styled_widgets.dart';
+import 'package:halen_demo/spoof_services/data_spoofer.dart';
+
+class HalenBottomNavBar extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      elevation: 24,
+      ///this value should be defined from a data-source; especially if we want it to potentially support additional layouts
+      items: DataSpoofer().getFakeBottomNavBarItems(),
+      backgroundColor: Colors.white,
+      unselectedLabelStyle: ConstantStyledWidgets.navBarStyle,
+      selectedLabelStyle: ConstantStyledWidgets.navBarStyle,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      type: BottomNavigationBarType.fixed,
+    );
+  }
+}

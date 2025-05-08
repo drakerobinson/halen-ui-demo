@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:halen_demo/components/bottom_navigation_bar.dart';
-import 'package:halen_demo/components/category_tabber.dart';
+import 'package:halen_demo/colors.dart';
+import 'package:halen_demo/components/common/bottom_navigation_bar.dart';
+import 'package:halen_demo/components/common/category_tabber.dart';
 import 'package:halen_demo/components/constant_style_widgets/constant_styled_widgets.dart';
 import 'package:halen_demo/components/home/carousel.dart';
 import 'package:halen_demo/spoof_services/data_spoofer.dart';
+
+import 'components/common/halen_main_app_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,50 +37,40 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
 
   ///this would be implemented as a page view, with the CategoryTabber & bottom nav bar controlling its contents
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: [
-          CategoryTabber(),
-          SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                 SizedBox(
-                   height: 200,
-                  child: Carousel(items: DataSpoofer().getFakePromotions()),
-                ),
-                ConstantStyledWidgets().getHomeTitle('What\'s going on in your community?'),
-                SizedBox(
-                  height: 425,
-                  child: Carousel(items: DataSpoofer().getFakeEvents()),
-                ),
-              ],
+      backgroundColor: HalenColors.backgroundColor,
+      appBar: PreferredSize(preferredSize: Size.fromHeight(125), child: HalenMainAppBar()),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            CategoryTabber(),
+            SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                   SizedBox(
+                     height: 185,
+                    child: Carousel(items: DataSpoofer().getFakePromotions()),
+                  ),
+                  Align(alignment: Alignment.centerLeft, child: Padding(
+                    padding: const EdgeInsets.only(left: 12.0, top: 16, bottom: 4),
+                    child: ConstantStyledWidgets().getHomeTitle('What\'s going on in your community?'),
+                  )),
+                  SizedBox(
+                    height: 350,
+                    child: Carousel(items: DataSpoofer().getFakeEvents()),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
       bottomNavigationBar: HalenBottomNavBar(),
     );
   }

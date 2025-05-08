@@ -15,7 +15,10 @@ class Carousel extends StatelessWidget {
 
     return ListView.builder(
         itemCount: items.length,
-        itemBuilder: (context, index) => CarouselWidget(item: items[index]),
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: CarouselWidget(item: items[index]),
+        ),
         scrollDirection: Axis.horizontal,
     );
   }
