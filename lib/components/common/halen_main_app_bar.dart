@@ -9,23 +9,21 @@ class HalenMainAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: HalenColors.primary,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 16, top: 48),
-                child: ConstantStyledWidgets().getWelcomeNameText('Hi, Michael'),
-              ),
-             Padding(
-               padding: const EdgeInsets.only(left: 16, right: 16, top: 24),
-               child: HomePageSearchBar(),
-             ),
-            ],
-        ),
+    return Container(
+      color: HalenColors.primary,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 24),
+              child: ConstantStyledWidgets().getWelcomeNameText('Hi, Michael'),
+            ),
+           Padding(
+             padding: const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 12),
+             child: HomePageSearchBar(),
+           ),
+          ],
       ),
     );
   }

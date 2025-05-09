@@ -37,10 +37,8 @@ dependencies:
   flutter_auto_size_text: ^4.1.0
   url_launcher: ^6.3.1
   flutter_svg: ^2.1.0
-  draconian_utilities:
-    git:
-      url: https://github.com/drakerobinson/draconian_utilities
-      ref: main
+  provider: ^6.1.5
+  draconian_utilities: 0.0.1
 
 dev_dependencies:
   flutter_test:
@@ -57,8 +55,7 @@ flutter:
 
 
   assets:
-    - assets/images/map_image.png
-    - assets/images/promo_image.png
+    - assets/images/
     - assets/halenlogo.svg
     - assets/car_asset.svg
 
