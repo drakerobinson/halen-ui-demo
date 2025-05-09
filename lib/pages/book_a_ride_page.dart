@@ -1,3 +1,4 @@
+import 'package:draconian_utilities/dpi_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:halen_demo/components/constant_style_widgets/constant_styled_widgets.dart';
@@ -16,7 +17,7 @@ class BookARidePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * .4,
+            height: DpiUtil.getPartialHeight(context, percentOf: .4),
             child: RideshareMap(),
           ),
           Padding(

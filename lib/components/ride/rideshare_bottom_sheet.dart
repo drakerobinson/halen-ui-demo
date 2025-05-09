@@ -1,3 +1,4 @@
+import 'package:draconian_utilities/dpi_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:halen_demo/colors.dart';
@@ -37,8 +38,8 @@ class _RideshareBottomSheetState extends State<RideshareBottomSheet>
             controller: _tabController,
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * .325,
+            width: DpiUtil.getWidth(context),
+            height: DpiUtil.getPartialHeight(context, percentOf: .325),
             child: TabBarView(
               controller: _tabController,
               children: [getRides(), getRides(), getRides()],

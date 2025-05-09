@@ -1,3 +1,4 @@
+import 'package:draconian_utilities/dpi_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ class HomePageSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 45,
-      width: MediaQuery.of(context).size.width,
+      width: DpiUtil.getWidth(context),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,

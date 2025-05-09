@@ -1,3 +1,4 @@
+import 'package:draconian_utilities/dpi_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auto_size_text/flutter_auto_size_text.dart';
@@ -66,7 +67,7 @@ class CheckoutFooter extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 24.0, top: 8),
       child: TextButton(
         style: TextButton.styleFrom(
-          minimumSize: Size(MediaQuery.of(context).size.width * .95, 50),
+          minimumSize: Size(DpiUtil.getPartialHeight(context, percentOf: .95), 50),
           backgroundColor: HalenColors.tabDarkColor,
          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
 
